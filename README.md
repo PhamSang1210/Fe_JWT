@@ -1,6 +1,7 @@
 # Node v21.5.0
 
 # CMD: yarn
+<<<<<<< HEAD
 
 **HELLO**
 
@@ -41,3 +42,5 @@ _nghieng_
 Here's a sentence with a footnote. [^1]
 
 [^1]: This is the footnote.
+=======
+>>>>>>> d1757d47fd969c170ab2449d592f7bb09bab04b3
