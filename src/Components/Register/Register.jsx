@@ -1,16 +1,48 @@
+import { useState } from "react";
 import "./register.css";
+import { registerUser } from "../../redux/apiRequest";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const newUser = {
+            email,
+            name,
+            password,
+        };
+        registerUser(newUser, dispatch, navigate);
+    };
     return (
         <section className="register-container">
             <div className="register-title"> Sign up </div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>EMAIL</label>
-                <input type="text" placeholder="Enter your email" />
+                <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="Enter your email"
+                />
                 <label>USERNAME</label>
-                <input type="text" placeholder="Enter your username" />
+                <input
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    placeholder="Enter your username"
+                />
                 <label>PASSWORD</label>
-                <input type="password" placeholder="Enter your password" />
-                <button type="submit"> Create account </button>
+                <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="text"
+                    placeholder="Enter your password"
+                />
+                <button> Create account </button>
             </form>
         </section>
     );
